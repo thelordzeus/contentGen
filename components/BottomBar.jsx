@@ -2,6 +2,32 @@ import { Modal, Button } from "flowbite-react";
 import { useState } from "react";
 export default function BottomBar() {
   const [isOpen, setOpen] = useState(false);
+  const [postInput, setPostInput] = useState("");
+  const [apiOutput, setApiOutput] = useState("");
+  const [isGenerating, setIsGenerating] = useState("");
+
+  const callGenerateEndPoint = async () => {
+    setIsGenerating(true);
+    console.log("Calling Open Ai....");
+
+    const response = await fetch("/api/write", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ postInput }),
+    });
+
+    const data = await response.json();
+    const { output } = data;
+    console.log("OpenAi replied...", output.text);
+    setApiOutput(`${output.text}`);
+    setIsGenerating(false);
+  };
+
+  const onChangedPost = (event) => {
+    setPostInput(event.target.body);
+  };
 
   return (
     <section className="block fixed  bottom-0 inset-x-0 z-50 shadow-lg text-white bg-black lg:w-2/5  w-11/12 md:w-3/4 m-auto pb-8">
@@ -29,21 +55,30 @@ export default function BottomBar() {
                   >
                     Post Title
                   </label>
-                  <input
-                    type="string"
-                    name="email"
-                    id="email"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                  <textarea
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white mb-2"
                     placeholder="What is life?"
-                    required
+                    value={postInput}
+                    onChange={onChangedPost}
                   />
                 </div>
-                <button
-                  type="submit"
-                  class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  Create new post
-                </button>
+                <div>
+                    <a
+                      className={
+                        isGenerating ? "generate-button loading" : "generate-button"
+                      }
+                      onClick={callGenerateEndPoint}
+                    >
+                      <div className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 pt-5">
+                        {isGenerating ? (
+                          <span className="loader"></span>
+                        ) : (
+                          <p>Generate</p>
+                        )}
+                      </div>
+                    </a>
+                </div>
+                here we print the API output 
               </form>
             </Modal.Body>
           </Modal>
