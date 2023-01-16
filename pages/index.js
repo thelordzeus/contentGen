@@ -9,6 +9,8 @@ import BottomBar from "@/components/BottomBar";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+
   return (
     <>
       <div className="bg-black h-screen">

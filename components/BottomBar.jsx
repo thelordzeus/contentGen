@@ -21,7 +21,7 @@ export default function BottomBar() {
     const data = await response.json();
     const { output } = data;
     console.log("OpenAi replied...", output.text);
-    setApiOutput(`${output.text}`);
+    setApiOutput(`${output.text}`); 
     setIsGenerating(false);
   };
 
@@ -78,7 +78,6 @@ export default function BottomBar() {
                       </div>
                     </a>
                 </div>
-                here we print the API output 
               </form>
             </Modal.Body>
           </Modal>
