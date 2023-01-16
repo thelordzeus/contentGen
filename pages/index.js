@@ -4,6 +4,7 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "@/components/Navbar";
 import GptResponse from "@/components/GptResponse";
+import BottomBar from "@/components/BottomBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function Home() {
         </Head>
         <Navbar />
         <GptResponse />
+        <BottomBar/>
       </div>
     </>
   );
