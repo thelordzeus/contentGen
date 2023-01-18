@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
-
   return (
     <>
       <div className="bg-black h-screen">
@@ -25,7 +24,7 @@ export default function Home() {
         </Head>
         <Navbar />
         <GptResponse />
-        <BottomBar/>
+        <BottomBar />
       </div>
     </>
   );
