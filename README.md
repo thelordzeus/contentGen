@@ -1,7 +1,7 @@
 
 # ContentGen
 
-ContentGen is a website that makes it easy for users to generate professional-quality LinkedIn posts with just a few clicks. The site features a special prompt that is engineered specifically for the structure of LinkedIn posts, making it easy for users to create high-quality content that is tailored to the platform. With ContentGen, users simply need to enter a post title, and the site will generate a polished post that is ready to be shared on LinkedIn. Whether you're a professional looking to share your expertise or a business looking to promote your products and services, ContentGen is the perfect tool for creating engaging and effective LinkedIn posts.
+ContentGen is a chatGPT powered website that makes it easy for users to generate professional-quality LinkedIn posts with just a few clicks. The site features a special prompt that is engineered specifically for the structure of LinkedIn posts, making it easy for users to create high-quality content that is tailored to the platform. With ContentGen, users simply need to enter a post title, and the site will generate a polished post that is ready to be shared on LinkedIn. Whether you're a professional looking to share your expertise or a business looking to promote your products and services, ContentGen is the perfect tool for creating engaging and effective LinkedIn posts.
 
 ## Product Demo
 
