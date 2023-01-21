@@ -24,7 +24,7 @@ export default function Home() {
         </Head>
         <Navbar />
         <GptResponse />
-        <BottomBar />
+        
       </div>
     </>
   );
