@@ -32,7 +32,7 @@ export default function GptResponse() {
 
   function clearData() {
     setApiOutput("");
-    setPostInput("");
+    setPostInput("Add a new post");
   }
 
   return (
