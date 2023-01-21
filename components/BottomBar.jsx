@@ -21,12 +21,13 @@ export default function BottomBar() {
     const data = await response.json();
     const { output } = data;
     console.log("OpenAi replied...", output.text);
+    console.log("post Input...", postInput);
     setApiOutput(`${output.text}`);
     setIsGenerating(false);
   };
 
   const onChangedPost = (event) => {
-    setPostInput(event.target.body);
+    setPostInput(event.target.value);
   };
 
   return (
